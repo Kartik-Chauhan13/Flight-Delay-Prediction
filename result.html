@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 36px;
+        }
+        p#result {
+            font-size: 22px;
+            text-align: center;
+            margin: 10px 0;
+            color: #555;
+            padding: 20px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+            max-width: 400px;
+        }
+        /* Add more custom styles here as needed */
+        .on-time {
+            color: #27ae60;
+            border-color: #27ae60;
+        }
+        .delayed {
+            color: #e74c3c;
+            border-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p id="result"></p>
+
+    <script>
+        var prediction = "{{prediction}}";  // Wrap the variable in quotes to handle it as a string
+        var resultElement = document.getElementById('result');
+
+        if (prediction === "0") {
+            resultElement.textContent = "Your Flight is On Time!!!";
+            resultElement.classList.add('on-time');
+        } else {
+            resultElement.textContent = "OOPS! Your Flight is Delayed";
+            resultElement.classList.add('delayed');
+        }
+    </script>
+</body>
+</html>
